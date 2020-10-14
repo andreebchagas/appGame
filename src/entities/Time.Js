@@ -1,7 +1,8 @@
 const { DataTypes, Model } = require("sequelize");
 const sequelize = require("../config/db");
+const Jogador = require("./Jogador");
 
-class Time extends Model{};
+class Time extends Model{}
 
 Time.init({
     id:{
@@ -14,12 +15,10 @@ Time.init({
 {
     sequelize,
     modelName: "Time",
-    tableName: "times"
+    tableName: "times",
 });
 
-Time.belongsToMany(Jogo,{
-    through: Time,
-    foreignKey: id,
-})
+Time.hasMany(Jogador);
+
 
 module.exports = Time;

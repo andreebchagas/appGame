@@ -1,12 +1,12 @@
 const {DataTypes, Model} = require("sequelize");
 const sequelize = require("../config/db");
-const Time = require("./Time.Js");
+const Time = require("./Time");
 
 const Jogo = sequelize.define(
     "Jogo",
     {
         id_time_mandante: {
-            types: DataTypes.STRING,
+            type: DataTypes.STRING,
             primaryKey:true,
             references: {
                 model: Time,
@@ -14,20 +14,19 @@ const Jogo = sequelize.define(
             },
         },
         id_time_visitante: {
-            types: DataTypes.STRING,
+            type: DataTypes.STRING,
             primaryKey:true,
             references: {
                 model: Time,
                 key: "id",
             },
         },
+        dataRealizacao:{
+            type: DataTypes.DATEONLY,
+            primaryKey:true,
+        },
     },
-    {tableName: "jogos", timestamps:false}
+    {tableName: "jogos", timestamps:false},
 );
-
-Jogo.belongsToMany(Time,{
-    through: Jogo,
-    foreignKey: id_time_mandante,id_time_visitante,
-})
 
 module.exports = Jogo;

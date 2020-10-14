@@ -2,7 +2,7 @@ const { DataTypes, Model } = require("sequelize");
 const sequelize = require("../config/db");
 const Time = require("./Time");
 
-class Jogador extends Model{};
+class Jogador extends Model{}
 
 Jogador.init({
     id:{
@@ -11,22 +11,12 @@ Jogador.init({
     },
     nome: DataTypes.STRING,
     apelido: DataTypes.STRING,
-    id_time: {
-        type:DataTypes.STRING,
-        references: {
-            model: Time,
-            key:"id",
-        },
-    },
 },
     {
     sequelize,
     modelName: "Jogador",
     tableName: "jogadores",
 });
-
-Jogador.belongsTo(Time, {
-    foreignKey: "id_time",
-});
+Jogador.belongsTo(Time);
 
 module.exports = Jogador;
