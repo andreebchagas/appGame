@@ -18,7 +18,4 @@ Time.init({
     tableName: "times",
 });
 
-Time.hasMany(Jogador);
-
-
 module.exports = Time;

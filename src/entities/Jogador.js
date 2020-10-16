@@ -17,6 +17,8 @@ Jogador.init({
     modelName: "Jogador",
     tableName: "jogadores",
 });
-Jogador.belongsTo(Time);
+
+Time.hasMany(Jogador, { foreignKey: "id_time" });
+Jogador.belongsTo(Time, { foreignKey: "id_time" });
 
 module.exports = Jogador;
