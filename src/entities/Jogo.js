@@ -21,7 +21,7 @@ const Jogo = sequelize.define(
                 key: "id",
             },
         },
-        dataRealizacao:{
+        data_realizacao:{
             type: DataTypes.DATEONLY,
             primaryKey:true,
         },
