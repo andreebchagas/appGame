@@ -50,7 +50,7 @@ class JogosController{
 
         const newID = uuidv4();
 
-        await Time.create({id:newID, id_time_mandante, id_time_visitante, data_realizacao});
+        await Jogo.create({id:newID, id_time_mandante, id_time_visitante, data_realizacao});
 
         res.send();
     }
@@ -95,8 +95,6 @@ class JogosController{
     }else{
         res.sendStatus(404);
     }
-
-    Jogo.update
  }
     async destroy(req, res) {
         const { id } = req.params;

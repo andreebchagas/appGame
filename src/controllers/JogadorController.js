@@ -32,7 +32,7 @@ class JogadorController {
 
  async update(req,res) {
     const {id} = req.params;
-    const{nome, apelido, time} = req.body;
+    const{nome, apelido, id_time} = req.body;
     const jogador = await Jogador.findByPk(id);
 
         if(jogador){
@@ -40,7 +40,7 @@ class JogadorController {
                 {
                     nome,
                     apelido,
-                    time,
+                    id_time,
                 },
                 {
                     where:{
